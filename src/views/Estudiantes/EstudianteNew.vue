@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-import ref from 'vue'
+import { ref } from 'vue';
 import { showAlert, sendResultResponse } from '@/components/Utils/funciones.js'
 
 const nombre = ref('');
