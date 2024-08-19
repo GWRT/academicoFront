@@ -142,7 +142,7 @@ export default {
   methods: {
     getStudents() {
       this.loading = true
-      axios.get(`${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes`)
+      axios.get(`${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes`)
         .then(response => {
           this.students = response.data
           this.loading = false
@@ -153,7 +153,7 @@ export default {
     },
     deleteStudent(id, nombre) {
       showConfirmAlert(
-        `${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes`,
+        `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes`,
         id,
         'Eliminar Registro',
         `¿Está seguro de eliminar el registro de ${nombre}?`

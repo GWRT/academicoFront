@@ -71,7 +71,7 @@ const apellido = ref('');
 const foto = ref('');
 const loading = ref(false);
 const route = useRoute();
-const url = ref(`${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes/${route.params.id}`);
+const url = ref(`${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes/${route.params.id}`);
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -118,7 +118,7 @@ onMounted(() => {
 });
 
 watch(() => route.params.id, () => {
-    url.value = `${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes/${route.params.id}`;
+    url.value = `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes/${route.params.id}`;
     getStudent();
 });
 </script>

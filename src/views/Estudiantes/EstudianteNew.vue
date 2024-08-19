@@ -83,7 +83,7 @@ export default {
             nombre: '',
             apellido: '',
             foto: '',
-            url: `${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes`,
+            url: `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes`,
             loading: false
         }
     },
