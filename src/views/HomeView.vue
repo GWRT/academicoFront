@@ -29,7 +29,8 @@
             <h1 class="text-black">Cargando...</h1>
           </td>
         </tr>
-        <tr v-else v-for="est, i in this.students" :key="est.id" class="border-b bg-tertiary hover:bg-secondary/70 text-neutral">
+        <tr v-else v-for="est, i in this.students" :key="est.id"
+          class="border-b bg-tertiary hover:bg-secondary/70 text-neutral">
 
           <td v-text="i + 1" class="w-2 p-4 text-center"></td>
 
@@ -141,7 +142,7 @@ export default {
   methods: {
     getStudents() {
       this.loading = true
-      axios.get('http://academicobackend.test/api/v1/estudiantes')
+      axios.get(`${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes`)
         .then(response => {
           this.students = response.data
           this.loading = false
@@ -151,7 +152,12 @@ export default {
         })
     },
     deleteStudent(id, nombre) {
-      showConfirmAlert('http://academicobackend.test/api/v1/estudiantes/', id, 'Eliminar Registro', `¿Está seguro de eliminar el registro de ${nombre}?`)
+      showConfirmAlert(
+        `${import.meta.env.ACADEMICO_API_URL}/api/v1/estudiantes`,
+        id,
+        'Eliminar Registro',
+        `¿Está seguro de eliminar el registro de ${nombre}?`
+      )
       this.loading = false;
     },
   },
