@@ -16,7 +16,7 @@
 
                                 <div class="md:col-span-1">
                                     <label for="first_name" class="font-semibold">Nombre</label>
-                                    <input type="text" name="fisrt_name" id="first_name" v-model="nombre"
+                                    <input type="text" name="first_name" id="first_name" v-model="nombre"
                                         class="w-full h-10 px-4 mt-1 mb-5 text-black border rounded" value="" required
                                         maxlength="50" />
 
@@ -70,13 +70,6 @@ const foto = ref('');
 const url = `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes`;
 const loading = ref(false);
 
-const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        console.log(file.name);
-    }
-};
-
 const triggerFileInput = () => {
     document.getElementById('profile_image').click();
 };
@@ -89,8 +82,8 @@ const previewImage = (event) => {
     }
 };
 
-const saveStudentsForm = (event) => {
-    this.loading = true
+const saveStudentsForm = async (event) => {
+    loading.value = true;
     event.preventDefault();
 
     if (nombre.value.trim() === '') {
@@ -102,10 +95,15 @@ const saveStudentsForm = (event) => {
             nombre: nombre.value.trim(),
             apellido: apellido.value.trim(),
             foto: foto.value.trim()
-        }
+        };
 
-        sendResultResponse('POST', params, url, 'Estudiante registrado correctamente');
+        try {
+            await sendResultResponse('POST', params, url, 'Estudiante registrado correctamente');
+        } catch (error) {
+            showAlert('Error al registrar el estudiante', 'error');
+        } finally {
+            loading.value = false;
+        }
     }
 };
-
 </script>
