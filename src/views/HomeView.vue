@@ -30,7 +30,7 @@
           </td>
         </tr>
         <tr v-else v-for="est, i in this.students" :key="est.id"
-          class="border-b bg-tertiary hover:bg-secondary/70 text-neutral">
+          class="border-b h-min bg-tertiary hover:bg-secondary/70 text-neutral">
 
           <td v-text="i + 1" class="w-2 p-4 text-center"></td>
 
