@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex justify-center w-full py-5 overflow-x-auto shadow-md item-center bg-quinary">
-    <table class="w-full md:w-0.5 text-sm text-left rtl:text-right rounded-lg overflow-auto">
+    <table class="table-auto w-full md:w-0.5 text-sm text-left rtl:text-right rounded-lg overflow-auto">
       <thead class="text-xs uppercase text-neutral bg-quinary">
         <tr>
           <th scope="col" class="text-center">
@@ -24,13 +24,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-if="this.loading">
+        <tr v-if="this.loading" class="h-8">
           <td colspan="5">
             <h1 class="text-black">Cargando...</h1>
           </td>
         </tr>
         <tr v-else v-for="est, i in this.students" :key="est.id"
-          class="border-b h-min bg-tertiary hover:bg-secondary/70 text-neutral">
+          class="border-b min-h-5 bg-tertiary hover:bg-secondary/70 text-neutral">
 
           <td v-text="i + 1" class="w-2 p-4 text-center"></td>
 
@@ -72,53 +72,6 @@
             </div>
           </td>
         </tr>
-        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-          <td class="w-4 p-4">
-            1
-          </td>
-          <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-            <img class="w-10 h-10 rounded-full" src="" alt="Jese image">
-            <div class="ps-3">
-              <div class="text-base font-semibold">Neil Sims</div>
-              <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
-            </div>
-          </th>
-          <td class="px-6 py-4">
-            React Developer
-          </td>
-          <td class="px-6 py-4">
-            <div class="flex items-center">
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-            </div>
-          </td>
-          <td class="px-6 py-4">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
-          </td>
-        </tr> -->
-        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-          <td class="w-4 p-4">
-            2
-          </td>
-          <th scope="row"
-            class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            <img class="w-10 h-10 rounded-full" src="" alt="Jese image">
-            <div class="ps-3">
-              <div class="text-base font-semibold">Bonnie Green</div>
-              <div class="font-normal text-gray-500">bonnie@flowbite.com</div>
-            </div>
-          </th>
-          <td class="px-6 py-4">
-            Designer
-          </td>
-          <td class="px-6 py-4">
-            <div class="flex items-center">
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-            </div>
-          </td>
-          <td class="px-6 py-4">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
-          </td>
-        </tr> -->
       </tbody>
     </table>
   </div>
