@@ -106,7 +106,7 @@ export default {
     },
     deleteStudent(id, nombre) {
       showConfirmAlert(
-        `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes`,
+        `${import.meta.env.VITE_ACADEMICO_API_URL}/api/v1/estudiantes/`,
         id,
         'Eliminar Registro',
         `¿Está seguro de eliminar el registro de ${nombre}?`
